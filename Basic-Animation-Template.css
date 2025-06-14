@@ -1,0 +1,470 @@
+/* ===========================================================
+   ANIMATION TEMPLATE - The Marlon Lee Experience
+   Description: A searchable CSS animation toolkit for fast reuse
+   Author: Marlon Lee Smith
+   =========================================================== */
+
+
+/* =========================
+   RESPONSIVE ANIMATION VARIANTS
+   ========================= */
+
+/* === Extra Small Devices - Phones Portrait (max 360px) === */
+@media (max-width: 360px) {
+  .fade-in-xs {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-xs {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-xs {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Small Devices - Phones Landscape (361px - 480px) === */
+@media (min-width: 361px) and (max-width: 480px) {
+  .fade-in-sm {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-sm {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-sm {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Medium Devices - Small Tablets (481px - 767px) === */
+@media (min-width: 481px) and (max-width: 767px) {
+  .fade-in-md {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-md {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-md {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Large Devices - Tablets & Small Laptops (768px - 1023px) === */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .fade-in-lg {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-lg {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-lg {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Extra Large Devices - Desktops (1024px - 1279px) === */
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .fade-in-xl {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-xl {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-xl {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Ultra Large Devices - Large Screens (1280px and up) === */
+@media (min-width: 1280px) {
+  .fade-in-xxl {
+    animation: fadeIn 1s ease forwards;
+  }
+  .slide-up-xxl {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+  .zoom-in-xxl {
+    animation: zoomIn 0.5s ease-in-out forwards;
+  }
+}
+
+/* === Usage Example === */
+/*
+<div class="fade-in-sm ani-slow ease-out"></div>
+<div class="slide-up-lg ani-normal linear"></div>
+<div class="zoom-in-xxl ani-fast infinite"></div>
+*/
+
+
+/* =========================
+   UTILITY CLASSES
+   ========================= */
+
+/* === Animation Duration Utilities === */
+.ani-fast {
+  animation-duration: 0.3s;
+}
+
+.ani-normal {
+  animation-duration: 0.6s;
+}
+
+.ani-slow {
+  animation-duration: 1s;
+}
+
+.ani-slower {
+  animation-duration: 1.5s;
+}
+
+/* === Animation Timing Function Utilities === */
+.ease-in {
+  animation-timing-function: ease-in;
+}
+
+.ease-out {
+  animation-timing-function: ease-out;
+}
+
+.ease-in-out {
+  animation-timing-function: ease-in-out;
+}
+
+.linear {
+  animation-timing-function: linear;
+}
+
+/* === Animation Iteration Count Utilities === */
+.once {
+  animation-iteration-count: 1;
+}
+
+.repeat-2 {
+  animation-iteration-count: 2;
+}
+
+.repeat-3 {
+  animation-iteration-count: 3;
+}
+
+.infinite {
+  animation-iteration-count: infinite;
+}
+
+/* === Animation Delay Utilities === */
+.delay-1s {
+  animation-delay: 1s;
+}
+
+.delay-2s {
+  animation-delay: 2s;
+}
+
+.delay-3s {
+  animation-delay: 3s;
+}
+
+/* === Animation Fill Mode Utilities === */
+.fill-forwards {
+  animation-fill-mode: forwards;
+}
+
+.fill-backwards {
+  animation-fill-mode: backwards;
+}
+
+.fill-both {
+  animation-fill-mode: both;
+}
+
+.fill-none {
+  animation-fill-mode: none;
+}
+
+
+/* === Usage Example === */
+/* <div class="slide-up ani-slow ease-out infinite delay-1s fill-forwards"></div> */
+
+
+/* =========================
+   CORE ANIMATION CATALOG
+   ========================= */
+
+/* === FADE ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+
+/* === SLIDE ANIMATIONS === */
+@keyframes slideUp {
+  0% {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  0% {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease-out forwards;
+}
+
+.slide-down {
+  animation: slideDown 0.6s ease-out forwards;
+}
+
+.slide-left {
+  animation: slideLeft 0.6s ease-out forwards;
+}
+
+.slide-right {
+  animation: slideRight 0.6s ease-out forwards;
+}
+
+
+/* === ZOOM ANIMATIONS === */
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+}
+
+.zoom-in {
+  animation: zoomIn 0.5s ease-in-out forwards;
+}
+
+.zoom-out {
+  animation: zoomOut 0.5s ease-in-out forwards;
+}
+
+
+/* === ROTATE ANIMATIONS === */
+@keyframes rotateIn {
+  0% {
+    transform: rotate(-180deg);
+    opacity: 0;
+  }
+  100% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@keyframes rotateOut {
+  0% {
+    transform: rotate(0);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(180deg);
+    opacity: 0;
+  }
+}
+
+.rotate-in {
+  animation: rotateIn 0.7s ease forwards;
+}
+
+.rotate-out {
+  animation: rotateOut 0.7s ease forwards;
+}
+
+
+/* === BOUNCE ANIMATION === */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+.bounce {
+  animation: bounce 0.8s ease infinite;
+}
+
+
+/* === FLIP ANIMATIONS === */
+@keyframes flipX {
+  0% {
+    transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes flipY {
+  0% {
+    transform: perspective(400px) rotateY(90deg);
+    opacity: 0;
+  }
+  100% {
+    transform: perspective(400px) rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.flip-x {
+  animation: flipX 0.8s ease forwards;
+}
+
+.flip-y {
+  animation: flipY 0.8s ease forwards;
+}
+
+
+/* ===========================================================
+   SCROLL ANIMATIONS (CSS-Only Scroll-Triggered Effects)
+   =========================================================== */
+
+/* These styles animate elements as they scroll into view.
+   Works in modern browsers with support for Scroll-Linked Animations. */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes zoomInView {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll-fade-up {
+  animation: fadeInUp ease-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 25%;
+}
+
+/* === Extra Measure for Effectiveness on All Browsers === */
+@supports not (animation-timeline: view()) {
+  .scroll-fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+  }
+}
+
+.scroll-slide-left {
+  animation: slideInLeft ease-in-out;
+  animation-timeline: view();
+  animation-range: entry 0% cover 30%;
+}
+
+/* === Extra Measure for Effectiveness on All Browsers === */
+@supports not (animation-timeline: view()) {
+  .scroll-slide-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    animation: slideInLeft 1s ease-in-out forwards;
+  }
+}
+
+.scroll-zoom-in {
+  animation: zoomInView ease;
+  animation-timeline: view();
+  animation-range: entry 0% cover 20%;
+}
+
+/* === Extra Measure for Effectiveness on All Browsers === */
+@supports not (animation-timeline: view()) {
+  .scroll-zoom-in {
+    opacity: 0;
+    transform: scale(0.8);
+    animation: zoomInView 1s ease forwards;
+  }
+}
+
+/* === Usage Example === */
+/*
+<div class="scroll-fade-up ani-slow fill-forwards">
+  This block fades and slides up into view on scroll.
+</div>
+*/

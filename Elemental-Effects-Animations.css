@@ -1,0 +1,312 @@
+/* ==========================================================
+   FILE TITLE: Elemental-Effects-Animation.css
+   DESCRIPTION: A collection of CSS elemental animation snippets.
+   Includes Fire, Water, Lightning, Smoke, and more.
+   Designed for easy copy-pasting and experimentation.
+   
+   AUTHOR: Marlon Lee Smith
+   CREATED: 2025-06-14
+   ========================================================== */
+
+/* ============================
+   UTILITY CLASSES
+   ============================ */
+
+/* Animation duration helpers */
+.animate-fast {
+  animation-duration: 0.75s !important;
+}
+
+.animate-medium {
+  animation-duration: 1.5s !important;
+}
+
+.animate-slow {
+  animation-duration: 3s !important;
+}
+
+/* Animation iteration count helpers */
+.animate-infinite {
+  animation-iteration-count: infinite !important;
+}
+
+.animate-once {
+  animation-iteration-count: 1 !important;
+}
+
+/* Animation timing function helpers */
+.ease-linear {
+  animation-timing-function: linear !important;
+}
+
+.ease-easeinout {
+  animation-timing-function: ease-in-out !important;
+}
+
+.ease-easeout {
+  animation-timing-function: ease-out !important;
+}
+
+/* ============================
+   FIRE ANIMATION
+   ============================ */
+/* Usage:
+   <div class="fire"></div>
+   Optionally add utility classes like .animate-fast, .animate-infinite
+*/
+.fire {
+  position: relative;
+  width: 60px;
+  height: 100px;
+  background: radial-gradient(circle at 50% 70%, #ffae00, #ff4500 70%, transparent 80%);
+  border-radius: 30% 30% 50% 50% / 60% 60% 90% 90%;
+  animation: flicker 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 6px #ffae00);
+}
+
+.fire::before,
+.fire::after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform-origin: bottom center;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ff4500, transparent 70%);
+  animation: flicker 1.5s ease-in-out infinite alternate;
+  opacity: 0.7;
+}
+
+.fire::before {
+  width: 40px;
+  height: 70px;
+  margin-left: -20px;
+  animation-delay: 0s;
+}
+
+.fire::after {
+  width: 30px;
+  height: 50px;
+  margin-left: -15px;
+  animation-delay: 0.75s;
+}
+
+@keyframes flicker {
+  0%, 100% {
+    transform: scaleY(1) scaleX(1);
+    opacity: 1;
+    filter: drop-shadow(0 0 6px #ffae00);
+  }
+  50% {
+    transform: scaleY(1.1) scaleX(0.95);
+    opacity: 0.85;
+    filter: drop-shadow(0 0 12px #ffae00);
+  }
+}
+
+/* ============================
+   WATER WAVE ANIMATION
+   ============================ */
+/* Usage:
+   <div class="water-wave"></div>
+   Add utility classes like .animate-slow, .animate-infinite for effect speed
+*/
+.water-wave {
+  position: relative;
+  width: 150px;
+  height: 30px;
+  background: linear-gradient(90deg, #3db2ff 25%, #0f62fe 50%, #3db2ff 75%);
+  background-size: 200% 100%;
+  border-radius: 50% / 100%;
+  animation: waveShift 4s linear infinite;
+  opacity: 0.7;
+  filter: drop-shadow(0 0 8px #3db2ff);
+}
+
+@keyframes waveShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* ============================
+   LIGHTNING FLASH ANIMATION
+   ============================ */
+/* Usage:
+   <div class="lightning"></div>
+   Combine with utility classes like .animate-fast .animate-infinite
+*/
+.lightning {
+  width: 4px;
+  height: 60px;
+  background: linear-gradient(180deg, #e0f7ff, #0099ff);
+  box-shadow:
+    0 0 12px 3px #00ccff,
+    0 0 30px 6px #00ccff;
+  animation: lightningFlash 2s ease-in-out infinite;
+  position: relative;
+  margin: 0 auto;
+}
+
+@keyframes lightningFlash {
+  0%, 80%, 100% {
+    opacity: 0;
+    transform: translateX(0);
+    filter: brightness(1);
+  }
+  85%, 95% {
+    opacity: 1;
+    transform: translateX(-2px);
+    filter: brightness(2);
+    box-shadow:
+      0 0 20px 8px #00ccff,
+      0 0 40px 15px #00ccff;
+  }
+  90% {
+    transform: translateX(2px);
+  }
+}
+
+/* ============================
+   SMOKE ANIMATION
+   ============================ */
+/* Usage:
+   <div class="smoke"></div>
+*/
+.smoke {
+  position: relative;
+  width: 80px;
+  height: 100px;
+  background: radial-gradient(circle at 50% 50%, rgba(200, 200, 200, 0.3), transparent 70%);
+  border-radius: 40% 60% 50% 50% / 60% 40% 60% 40%;
+  animation: driftUp 6s ease-in-out infinite;
+  filter: blur(6px);
+  opacity: 0.6;
+  margin: 20px auto;
+}
+
+@keyframes driftUp {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-20px) scale(1.1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-40px) scale(1.3);
+    opacity: 0;
+  }
+}
+
+/* ============================
+   RAIN DROPS ANIMATION
+   ============================ */
+/* Usage:
+   <div class="raindrop"></div>
+*/
+.raindrop {
+  position: relative;
+  width: 4px;
+  height: 15px;
+  background: linear-gradient(to bottom, #66ccff 0%, #003366 100%);
+  border-radius: 50% 50% 60% 60% / 70% 70% 90% 90%;
+  animation: dropFall 1.2s linear infinite;
+  filter: drop-shadow(0 0 3px #66ccff);
+  margin: 0 4px;
+}
+
+@keyframes dropFall {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100px);
+    opacity: 0;
+  }
+}
+
+/* ============================
+   ICE CRYSTAL ANIMATION
+   ============================ */
+/* Usage:
+   <div class="ice"></div>
+*/
+.ice {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #ccefff 10%, #66ccff 70%, transparent 90%);
+  clip-path: polygon(50% 0%, 60% 40%, 100% 40%, 70% 65%, 80% 100%, 50% 80%, 20% 100%, 30% 65%, 0% 40%, 40% 40%);
+  animation: iceTwinkle 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 8px #66ccff);
+  margin: 20px auto;
+}
+
+@keyframes iceTwinkle {
+  0%, 100% {
+    filter: drop-shadow(0 0 8px #66ccff);
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  50% {
+    filter: drop-shadow(0 0 18px #99ddff);
+    opacity: 0.8;
+    transform: rotate(5deg);
+  }
+}
+
+/* ============================
+   ABSTRACT ENERGY PULSE
+   ============================ */
+/* Usage:
+   <div class="energy-pulse"></div>
+*/
+.energy-pulse {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #ff00cc, #660099);
+  animation: pulseGlow 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 15px #ff00cc);
+  margin: 20px auto;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 15px #ff00cc);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px #ff33ff);
+    opacity: 0.7;
+  }
+}
+
+/* ============================
+   HOW TO COMBINE WITH JS POINTER EFFECTS
+   ============================ */
+/*
+  CSS animations can be combined with JavaScript for interactive
+  effects such as pointer-following glows, dynamic color changes,
+  or triggering animation on mouse events.
+
+  For example:
+  - Use JS to track pointer position and update CSS variables
+    controlling gradient centers or shadow positions.
+  - Toggle classes on hover or click to start/stop animations.
+  - Animate element properties based on pointer speed or direction.
+
+  This enhances user experience by making effects reactive and
+  immersive, while CSS handles smooth transitions and animations.
+*/
+
